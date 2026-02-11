@@ -3,10 +3,6 @@
     margin: 0;
     text-decoration: none;
 }
-@font-face {
-    font-family: BuilderSans;
-    src: url(./assets/fonts/BuilderSans.otf);
-}
 :root{
     --header-background: #006AB9;
     --light-Mode: #F2F2F2;
@@ -17,7 +13,7 @@ body{
 /* -------------------- STD HEADER ---------------------- */
 .stdHeader{
     background-color: var(--header-background);
-    font-family: BuilderSans, sans-serif;
+    font-family: sans-serif;
     height: 45px;
     position: fixed;
     left: 0;
@@ -25,6 +21,19 @@ body{
     top: 0;
     padding: 0 20px;
     display: flex;
+}
+/* Roblox sideBar menu btn */
+.navContainer .sidebarDropdownBtn{
+    background-image: url(assets/img/sidebarbtnIcon.png);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+
+    background-color: transparent;
+    border: none;
+    width: 45px;
+    height: 100%;
 }
 /* Roblox Logo */
 .navContainer .robloxIcon{
@@ -97,4 +106,46 @@ body{
 .settingsContainer div img{
     height: 60%;
 }
+
+@media (max-width: 1250px) {
+    /* header */
+    .stdHeader{
+        padding: 0 5px;
+    }
+    /* SidebarBtn */
+    .navContainer .sidebarDropdownBtn{
+        display: block;
+        margin-right: 5px;
+    }
+    /* Roblox icon */
+      .navContainer .robloxIcon{
+        background-image: url(assets/img/smallerLogo.webp);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 30px;
+      }
+      .navContainer form{
+        width: 350px;
+      }
+    /* Robux Amount */
+    .settingsContainer div p{
+        display: none;
+    }
+    .settingsContainer{
+        gap: 5px;
+    }
+    /* Roblox navigation */
+    .navContainer nav a{
+        padding: 0 10px;
+    }
+    /* roblox search */
+    .navContainer form{
+        padding: 0 5px;
+    }
+} 
 /* ---------------------- STD HEADER END ---------------- */
+
+/* ---------------------- HOME PAGE MAIN ELEMENT -------- */
+.homepageMainEl{
+    margin-top: 45px;
+}

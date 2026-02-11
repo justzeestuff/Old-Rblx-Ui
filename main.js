@@ -5,6 +5,14 @@ AttributesRemover(document.body);
 AttributesRemover(document.head);
 
 const stdHeader = new StdHeader();
-stdHeader.Init();
+
+if(window.location.pathname === '/home'){
+    const main = new homepageMainEl;
+    const profile = new homepageProfle;
+
+    stdHeader.Init();
+    main.Init();
+    profile.Init();
+}
 
 console.clear();

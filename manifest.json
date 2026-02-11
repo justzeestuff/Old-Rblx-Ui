@@ -16,8 +16,12 @@
       "matches": ["https://www.roblox.com/*"],
       "js": [
         "assets/Util/AttributeRemover.js",
+        
         "assets/components/StdHeader/stdHeader.js",
+  
         "assets/pages/home/MainEl.js",
+        "assets/pages/home/Profile.js",
+        
         "main.js"
       ],
       "css": ["index.css"],
