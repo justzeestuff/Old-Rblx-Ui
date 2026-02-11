@@ -5,7 +5,7 @@
   "description": "This turns ur Modern Roblox UI to 2017 styled UI",
   "permissions": [
     "https://www.roblox.com/*",
-    "https://economy.roblox.com/*"
+    "https://*.roblox.com/*"
     ],
   "web_accessible_resources": [
     "index.css",
@@ -17,7 +17,8 @@
       "js": [
         "assets/Util/AttributeRemover.js",
         
-        "assets/components/StdHeader/stdHeader.js",
+        "assets/components/stdHeader.js",
+        "assets/components/profileHeadshot.js",
   
         "assets/pages/home/MainEl.js",
         "assets/pages/home/Profile.js",

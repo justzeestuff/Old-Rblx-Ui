@@ -61,19 +61,26 @@ class StdHeader{
         settingsContainer.classList.add('settingsContainer')
         this.header.appendChild(settingsContainer);
         
-        function Robux(){
+        async function Robux(){
             const container = document.createElement('div');
             const icon = document.createElement('img');
             const amount = document.createElement('p');
     
             icon.src = chrome.runtime.getURL('assets/img/robuxIcon.png')
-    
-            fetch("https://economy.roblox.com/v1/user/currency",)
-            .then(res => res.json())
-            .then(data =>{
+
+            
+            try{
+                const response = await fetch("https://economy.roblox.com/v1/user/currency");
+                if(!response.ok) throw new Error("Failed to fetch Robux");
+                
+                const data = await response.json();
+
                 amount.textContent = data.robux;
                 if(data.robux > 999) amount.textContent = `${Math.floor(data.robux / 1000)}K+`;
-            })
+            }
+            catch(error){
+                throw new Error("Failed to fetch Robux: " + error.message);
+            }
     
             settingsContainer.appendChild(container);
             container.append(icon,amount);
@@ -92,5 +99,4 @@ class StdHeader{
         Robux();
         Settings();
     }   
-
 }
