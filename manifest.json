@@ -9,9 +9,13 @@
     ],
   "web_accessible_resources": [
     "dist/components/stdHeader/stdHeader.module.css",
-    
     "index.css",
-    "assets/img/RobloxLogo.png"
+
+    "dist/img/RobloxLogo.png",
+    "dist/img/robuxIcon.png",
+    "dist/img/SettingsIcon.png",
+    "dist/img/sidebarbtnIcon.png",
+    "dist/img/smallerLogo.webp"
   ],   
   "content_scripts": [
     {
@@ -24,7 +28,10 @@
         
         "dist/main.js"
       ],
-      "css": ["index.css"],
+      "css": [
+        "index.css",
+        "dist/components/stdHeader/stdHeader.module.css"
+      ],
       "run_at": "document_end"
     }
   ]

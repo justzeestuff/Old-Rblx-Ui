@@ -60,40 +60,42 @@ class StdHeader {
         Searchbar();
     }
     SettingsContainer() {
-        const settingsContainer = document.createElement('div');
-        settingsContainer.classList.add('settingsContainer');
-        this.header.appendChild(settingsContainer);
-        function Robux() {
-            return __awaiter(this, void 0, void 0, function* () {
-                const container = document.createElement('div');
+        return __awaiter(this, void 0, void 0, function* () {
+            const settingsContainer = document.createElement('div');
+            settingsContainer.classList.add('settingsContainer');
+            this.header.appendChild(settingsContainer);
+            function Robux() {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const container = document.createElement('div');
+                    const icon = document.createElement('img');
+                    const amount = document.createElement('p');
+                    icon.src = chrome.runtime.getURL('dist/img/robuxIcon.png');
+                    try {
+                        const response = yield fetch("https://economy.roblox.com/v1/user/currency");
+                        if (!response.ok)
+                            throw new Error("Failed to fetch Robux");
+                        const data = yield response.json();
+                        amount.textContent = data.robux;
+                        if (data.robux > 999)
+                            amount.textContent = `${Math.floor(data.robux / 1000)}K+`;
+                    }
+                    catch (error) {
+                        throw new Error("Failed to fetch Robux: " + error.message);
+                    }
+                    settingsContainer.appendChild(container);
+                    container.append(icon, amount);
+                });
+            }
+            function Settings() {
+                const btn = document.createElement('button');
                 const icon = document.createElement('img');
-                const amount = document.createElement('p');
-                icon.src = chrome.runtime.getURL('assets/img/robuxIcon.png');
-                try {
-                    const response = yield fetch("https://economy.roblox.com/v1/user/currency");
-                    if (!response.ok)
-                        throw new Error("Failed to fetch Robux");
-                    const data = yield response.json();
-                    amount.textContent = data.robux;
-                    if (data.robux > 999)
-                        amount.textContent = `${Math.floor(data.robux / 1000)}K+`;
-                }
-                catch (error) {
-                    throw new Error("Failed to fetch Robux: " + error.message);
-                }
-                settingsContainer.appendChild(container);
-                container.append(icon, amount);
-            });
-        }
-        function Settings() {
-            const btn = document.createElement('button');
-            const icon = document.createElement('img');
-            icon.src = chrome.runtime.getURL('assets/img/SettingsIcon.png');
-            settingsContainer.appendChild(btn);
-            btn.appendChild(icon);
-        }
-        // Call functions
-        Robux();
-        Settings();
+                icon.src = chrome.runtime.getURL('dist/img/SettingsIcon.png');
+                settingsContainer.appendChild(btn);
+                btn.appendChild(icon);
+            }
+            // Call functions
+            yield Robux();
+            Settings();
+        });
     }
 }

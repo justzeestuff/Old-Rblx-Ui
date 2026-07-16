@@ -11,7 +11,7 @@
 }
 /* Roblox sideBar menu btn */
 .navContainer .sidebarDropdownBtn{
-    background-image: url(assets/img/sidebarbtnIcon.png);
+    background-image: url(../../img/sidebarbtnIcon.png);
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@
     width: 130px;
     height: 100%;
     margin-right: 25px;
-    background-image: url(./assets/img/RobloxLogo.png);
+    background-image: url(../../img/RobloxLogo.png);
     background-size: cover;
     background-position: center;
 }
@@ -106,7 +106,7 @@
     }
     /* Roblox icon */
       .navContainer .robloxIcon{
-        background-image: url(assets/img/smallerLogo.webp);
+        background-image: url(../../img/smallerLogo.webp);
         background-repeat: no-repeat;
         background-size: contain;
         width: 30px;

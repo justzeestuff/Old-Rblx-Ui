@@ -57,7 +57,7 @@ class StdHeader{
         Navigation();
         Searchbar();     
     }
-    SettingsContainer(){
+    async SettingsContainer(){
         const settingsContainer = document.createElement('div')
         settingsContainer.classList.add('settingsContainer')
         this.header.appendChild(settingsContainer);
@@ -67,7 +67,7 @@ class StdHeader{
             const icon = document.createElement('img');
             const amount = document.createElement('p');
     
-            icon.src = chrome.runtime.getURL('assets/img/robuxIcon.png')
+            icon.src = chrome.runtime.getURL('dist/img/robuxIcon.png')
             
             try{
                 const response = await fetch("https://economy.roblox.com/v1/user/currency");
@@ -89,14 +89,14 @@ class StdHeader{
             const btn = document.createElement('button');
             const icon = document.createElement('img');
     
-            icon.src = chrome.runtime.getURL('assets/img/SettingsIcon.png');
+            icon.src = chrome.runtime.getURL('dist/img/SettingsIcon.png');
     
             settingsContainer.appendChild(btn);
             btn.appendChild(icon);
         }
 
         // Call functions
-        Robux();
+        await Robux();
         Settings();
     }   
 }

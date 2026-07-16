@@ -6,8 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Remove all uncesseray attributes roblox Provides
     AttributesRemover(document.body);
     AttributesRemover(document.head);
-    new StdHeader().Init();
-    // setTimeout(() => {
-    //     console.clear();
-    // }, 500);
+    setTimeout(() => {
+        new StdHeader().Init();
+    }, 500);
 });
