@@ -1,4 +1,5 @@
 class StdHeader{
+    header: HTMLElement;
     constructor(){
         this.header = document.createElement('header');
     }
@@ -67,7 +68,6 @@ class StdHeader{
             const amount = document.createElement('p');
     
             icon.src = chrome.runtime.getURL('assets/img/robuxIcon.png')
-
             
             try{
                 const response = await fetch("https://economy.roblox.com/v1/user/currency");
@@ -78,7 +78,7 @@ class StdHeader{
                 amount.textContent = data.robux;
                 if(data.robux > 999) amount.textContent = `${Math.floor(data.robux / 1000)}K+`;
             }
-            catch(error){
+            catch(error: any ){
                 throw new Error("Failed to fetch Robux: " + error.message);
             }
     

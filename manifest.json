@@ -8,6 +8,8 @@
     "https://*.roblox.com/*"
     ],
   "web_accessible_resources": [
+    "dist/components/stdHeader/stdHeader.module.css",
+    
     "index.css",
     "assets/img/RobloxLogo.png"
   ],   
@@ -15,15 +17,12 @@
     {
       "matches": ["https://www.roblox.com/*"],
       "js": [
-        "assets/Util/AttributeRemover.js",
+        "dist/components/stdHeader/stdHeader.js",
+
+        "dist/util/AttributeRemover.js",
+        "dist/util/user.js",
         
-        "assets/components/stdHeader.js",
-        "assets/components/profileHeadshot.js",
-  
-        "assets/pages/home/MainEl.js",
-        "assets/pages/home/Profile.js",
-        
-        "main.js"
+        "dist/main.js"
       ],
       "css": ["index.css"],
       "run_at": "document_end"
